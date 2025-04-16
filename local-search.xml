@@ -8,13 +8,15 @@
     <link href="/2025/04/16/test/"/>
     <url>/2025/04/16/test/</url>
     
-    <content type="html"><![CDATA[<p>test a</p><p><img src="/test.assets/%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.drawio.svg" alt="未命名绘图.drawio"></p>]]></content>
+    <content type="html"><![CDATA[<p>test a</p><p><img src="/../../../UNIVERSITY/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/%E7%AC%AC6%E4%BB%B6%E4%BA%8B-%E8%AE%BA%E6%96%87%E5%88%9D%E7%A8%BF/%E8%AE%BA%E6%96%87%E7%BB%98%E5%9B%BE/%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.drawio.svg" alt="未命名绘图.drawio"></p>]]></content>
     
     
     
     <tags>
       
-      <tag>othes tests</tag>
+      <tag>othes</tag>
+      
+      <tag>tests</tag>
       
     </tags>
     
