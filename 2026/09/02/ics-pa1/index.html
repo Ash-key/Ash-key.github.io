@@ -19,15 +19,15 @@
   <meta name="author" content="Asheng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="a多个分支的使用思路，在分支pa0上开发，把pa0提交，然后合并到master,切换回master,再创建出pa1,master中会存放之前做好的确定的工作 这里选择riscv32 非常的奇怪，我的截屏想要粘贴上md,需要满足1,截屏后界面手动复制,或cc，2,粘贴时右键点击，而不能cv或者p 1234&#96;&#96;&#96;source 本shell执行,缩写为. 不同于执行程序的.&#x2F;  根据有无空格区分这两个.">
+    <meta name="description" content="a多个分支的使用思路，在分支pa0上开发，把pa0提交，然后合并到master,切换回master,再创建出pa1,master中会存放之前做好的确定的工作 这里选择riscv32 非常的奇怪，我的截屏想要粘贴上md,需要满足1,截屏后界面手动复制,或cc，2,粘贴时右键点击，而不能cv或者p 123source 本shell执行,缩写为. 不同于执行程序的.&#x2F;  根据有无空格区分这两个. 比如">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ics_pa1">
 <meta property="og:url" content="https://ash-key.github.io/2026/09/02/ics-pa1/index.html">
 <meta property="og:site_name" content="Asheng">
-<meta property="og:description" content="a多个分支的使用思路，在分支pa0上开发，把pa0提交，然后合并到master,切换回master,再创建出pa1,master中会存放之前做好的确定的工作 这里选择riscv32 非常的奇怪，我的截屏想要粘贴上md,需要满足1,截屏后界面手动复制,或cc，2,粘贴时右键点击，而不能cv或者p 1234&#96;&#96;&#96;source 本shell执行,缩写为. 不同于执行程序的.&#x2F;  根据有无空格区分这两个.">
+<meta property="og:description" content="a多个分支的使用思路，在分支pa0上开发，把pa0提交，然后合并到master,切换回master,再创建出pa1,master中会存放之前做好的确定的工作 这里选择riscv32 非常的奇怪，我的截屏想要粘贴上md,需要满足1,截屏后界面手动复制,或cc，2,粘贴时右键点击，而不能cv或者p 123source 本shell执行,缩写为. 不同于执行程序的.&#x2F;  根据有无空格区分这两个. 比如">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-09-02T15:42:27.000Z">
-<meta property="article:modified_time" content="2026-09-14T14:48:21.955Z">
+<meta property="article:modified_time" content="2026-09-14T14:54:49.370Z">
 <meta property="article:author" content="Asheng">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -327,7 +327,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.4k 字
+          2.3k 字
         
       </span>
     
@@ -394,39 +394,35 @@
                 <h1 id="a"><a href="#a" class="headerlink" title="a"></a>a</h1><p>多个分支的使用思路，在分支pa0上开发，把pa0提交，然后合并到master,切换回master,再创建出pa1,master中会存放之前做好的确定的工作</p>
 <p>这里选择riscv32</p>
 <p>非常的奇怪，我的截屏想要粘贴上md,需要满足1,截屏后界面手动复制,或cc，2,粘贴时右键点击，而不能cv或者p</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile">```<br>source 本<span class="hljs-keyword">shell</span><span class="language-bash">执行,缩写为. 不同于执行程序的./  根据有无空格区分这两个. 比如  . ./env.sh;不用加权限</span><br>bash   子<span class="hljs-keyword">shell</span><span class="language-bash">，bash解释器;不用加权限</span><br>./     子<span class="hljs-keyword">shell</span><span class="language-bash">，根据脚本开头选择解释器，如#!/bin/bash <span class="hljs-comment">#!/usr/bin/env python3;不用加权限</span></span><br></code></pre></td></tr></table></figure>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs livescript"><br>x86下的pc *EIP*<br><br>trm图灵机：<span class="hljs-string">&quot;存储程序&quot;</span> -寄存器，加法器(计算单元)，pc,存储器,循环的做取程序并执行的行为<br><br>另一种理解程序的角度，计算机的状态看作一个不可能绘制的超大状态机，而程序是这个超级状态机的子集状态机<br><br>这里状态机对状态的定义：每一种寄存器数值组合作为一个状态，（pc,r1,r2）,x代表数值未知, pc是未自增时的值      <br><br><span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">0</span>,x,x)</span>-&gt;</span><span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,x)</span>-&gt;</span><span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)</span>-&gt;</span><span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">3</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>)</span>-&gt;</span><span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">4</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)</span>-&gt;</span><span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">5</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)</span>  -&gt;</span><span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>)</span>-&gt;</span><span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>)</span>-<span class="hljs-params">(<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>)</span>-&gt;</span> ...-&gt;<span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">3</span>,<span class="hljs-number">4950</span>,<span class="hljs-number">100</span>)</span>-&gt;</span><span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">4</span>,<span class="hljs-number">5050</span>,<span class="hljs-number">100</span>)</span>-&gt;</span><span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">5</span>,<span class="hljs-number">5050</span>,<span class="hljs-number">100</span>)</span>-&gt;</span>  <span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">6</span>,<span class="hljs-number">5050</span>,<span class="hljs-number">100</span>)</span>-&gt;</span><span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">6</span>,<span class="hljs-number">5050</span>,<span class="hljs-number">100</span>)</span>-&gt;</span>...<br><br>静态看代码的视角<br>动态的状态机视角<br><span class="hljs-comment"># b</span><br>客户计算机<br>客户程序<br><br></code></pre></td></tr></table></figure>
-<p>nemu-<br>    -monitor监视器,方便调试<br>    -cpu<br>    -memory<br>    -device设备</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scheme">```<br></code></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile">source 本<span class="hljs-keyword">shell</span><span class="language-bash">执行,缩写为. 不同于执行程序的./  根据有无空格区分这两个. 比如  . ./env.sh;不用加权限</span><br>bash   子<span class="hljs-keyword">shell</span><span class="language-bash">，bash解释器;不用加权限</span><br>./     子<span class="hljs-keyword">shell</span><span class="language-bash">，根据脚本开头选择解释器，如#!/bin/bash <span class="hljs-comment">#!/usr/bin/env python3;不用加权限</span></span><br></code></pre></td></tr></table></figure>
+<p>x86下的pc <em>EIP</em></p>
+<p>trm图灵机：”存储程序” -寄存器，加法器(计算单元)，pc,存储器,循环的做取程序并执行的行为</p>
+<p>另一种理解程序的角度，计算机的状态看作一个不可能绘制的超大状态机，而程序是这个超级状态机的子集状态机</p>
+<p>这里状态机对状态的定义：每一种寄存器数值组合作为一个状态，（pc,r1,r2）,x代表数值未知, pc是未自增时的值      </p>
+<p>(0,x,x)-&gt;(1,0,x)-&gt;(2,0,0)-&gt;(3,0,1)-&gt;(4,1,1)-&gt;(5,1,1)  -&gt;(3,1,2)-&gt;(4,3,2)-(5,3,2)-&gt; …-&gt;(3,4950,100)-&gt;(4,5050,100)-&gt;(5,5050,100)-&gt;  (6,5050,100)-&gt;(6,5050,100)-&gt;…</p>
+<p>静态看代码的视角<br>动态的状态机视角</p>
+<h1 id="b"><a href="#b" class="headerlink" title="b"></a>b</h1><p>客户计算机<br>客户程序</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">nemu-<br>    -<span class="hljs-keyword">monitor</span>监视器,方便调试<br>    -<span class="hljs-meta">cpu</span><br>    -memory<br>    -device设备<br></code></pre></td></tr></table></figure>
 
 <p><strong>配置系统</strong><br>配置系统：为解决配置选项关联性的问题，比如配置a的时候，b必须是某一个值，为了防止忘记配置b,所以使用配置系统；配置系统的文件名字叫做kconfig，配置描述语言也叫kconfig</p>
 <p>kconfig是一整套程序菜单工具，为我的项目程序提供一个图形化的菜单,图形化菜单也就是菜单树,虽然长得不像个树</p>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-title class_">Kconfig</span> 文件：这是“意图”层。它用类<span class="hljs-title class_">Make</span>的声明式语言，定义了“有哪些功能”和“功能间的约束关系”（即系统的“预期可变性”）。<br><br>mconf 程序：这是“交互”层。它解析<span class="hljs-title class_">Kconfig</span>，提供一个图形界面，让你（用户）方便地表达选择，并保存为 .config 文件。<br><br>conf 程序：这是“翻译”层。它读取你的选择（.config）和规则（<span class="hljs-title class_">Kconfig</span>），进行逻辑计算，最终生成给C代码用的 autoconf.h 和 给<span class="hljs-title class_">Makefile</span>用的 auto.conf。<br><br>编译器与<span class="hljs-title class_">Make</span>：这是“执行”层。它们只认翻译好的结果，根据配置决定编译哪些代码、启用哪些特性。<br></code></pre></td></tr></table></figure>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">```<br><br>其中mconf和conf都是kconfig这套东西提供的工具程序，基本上不随着我项目的变化和配置的变化变动，但是nemu这里还是由源码编译得到这两个工具程序，而不是直接放进来的二进制，所以会先检查对应目录下有没有这两个工具，没有就编译出来,在nemu/tools/kconfig/build下，可以看出nemu作者如何把kconfig一类的东西视作工具并集成在项目中以及安排好目录<br><br>kconfig这套工具实际使用流程，在我主项目makefile文件中写好kconfig调用，在kcongfig中写上我想要的菜单选项，然后make menuconfig,自动调出菜单，关闭菜单后自动生成.config文件（竟然不是直接生成<span class="hljs-built_in">auto</span>.conf和<span class="hljs-built_in">auto</span>conf.h）;接着make, 先不编译，而是自动触发命令conf --syncconfig Kconfig生成<span class="hljs-built_in">auto</span>.conf和<span class="hljs-built_in">auto</span>conf.h，然后主项目根据主makefile像编译普通项目一样把<span class="hljs-built_in">auto</span>.conf和<span class="hljs-built_in">auto</span>conf最终程序包含进来编译出来最终程序,只对应两个键入<br><br></code></pre></td></tr></table></figure>
-<p>make menuconfig<br>make(自动触发)</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs dart"><br>auto.<span class="hljs-title function_">conf</span>(可以被包含在<span class="hljs-title class_">Makefile</span>中的变量定义)<br>autoconf.<span class="hljs-title function_">h</span>(可以被包含在c代码中的宏定义，CONFIG_XXX)<br>**项目构建和makefile**<br>前面的menuconfig那套设置，会在<span class="hljs-title class_">Makefile</span>中映射为某些变量被替换为y或n或者无<br><br>  DIRS-BLACKLIST-$(CONFIG_TARGET_AM) += src/monitor/sdb   <span class="hljs-comment">//原式</span><br>  DIRS-BLACKLIST-y                   += src/monitor/sdb<br><br><span class="hljs-title class_">Makefile</span>内编写了若干个这样的原式，其中DIRS-BLACKLIST后面的那个y或n被配置成kconfig的变量，当决定为y的时候，这些式子中写在右边的这些文件夹或文件的目录就<br>被包含在左边的DIRS-BLACKLIST-y这样的变量中，否则就被包含在变量DIRS-BLACKLIST-n或者变量DIRS-BLACKLIST-中，后两者不必关心<br><br>makfile会关心这四个变量<br></code></pre></td></tr></table></figure>
 
-<p>SRCS-y - 参与编译的源文件的候选集合<br>SRCS-BLACKLIST-y - 不参与编译的源文件的黑名单集合<br>DIRS-y - 参与编译的目录集合, 该目录下的所有文件都会被加入到SRCS-y中<br>DIRS-BLACKLIST-y - 不参与编译的目录集合, 该目录下的所有文件都会被加入到SRCS-BLACKLIST-y中</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css"><br>这里的变量名称设置成这样，每个后面带个-<span class="hljs-attribute">y</span>，xxx-<span class="hljs-attribute">y</span>这种形式,就是为了用前述那种方法巧妙的利用kconfig工具传来的配置结果<br></code></pre></td></tr></table></figure>
-<pre><code class="hljs">
-**编译和链接**
-书签
+<p>其中mconf和conf都是kconfig这套东西提供的工具程序，基本上不随着我项目的变化和配置的变化变动，但是nemu这里还是由源码编译得到这两个工具程序，而不是直接放进来的二进制，所以会先检查对应目录下有没有这两个工具，没有就编译出来,在nemu&#x2F;tools&#x2F;kconfig&#x2F;build下，可以看出nemu作者如何把kconfig一类的东西视作工具并集成在项目中以及安排好目录</p>
+<p>kconfig这套工具实际使用流程，在我主项目makefile文件中写好kconfig调用，在kcongfig中写上我想要的菜单选项，然后make menuconfig,自动调出菜单，关闭菜单后自动生成.config文件（竟然不是直接生成auto.conf和autoconf.h）;接着make, 先不编译，而是自动触发命令conf –syncconfig Kconfig生成auto.conf和autoconf.h，然后主项目根据主makefile像编译普通项目一样把auto.conf和autoconf最终程序包含进来编译出来最终程序,只对应两个键入</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">make menuconfig<br><span class="hljs-function"><span class="hljs-title">make</span><span class="hljs-params">(自动触发)</span></span><br></code></pre></td></tr></table></figure>
 
+<p>auto.conf(可以被包含在Makefile中的变量定义)<br>autoconf.h(可以被包含在c代码中的宏定义，CONFIG_XXX)<br><strong>项目构建和makefile</strong><br>前面的menuconfig那套设置，会在Makefile中映射为某些变量被替换为y或n或者无</p>
+<p>  DIRS-BLACKLIST-$(CONFIG_TARGET_AM) +&#x3D; src&#x2F;monitor&#x2F;sdb   &#x2F;&#x2F;原式<br>  DIRS-BLACKLIST-y                   +&#x3D; src&#x2F;monitor&#x2F;sdb</p>
+<p>Makefile内编写了若干个这样的原式，其中DIRS-BLACKLIST后面的那个y或n被配置成kconfig的变量，当决定为y的时候，这些式子中写在右边的这些文件夹或文件的目录就<br>被包含在左边的DIRS-BLACKLIST-y这样的变量中，否则就被包含在变量DIRS-BLACKLIST-n或者变量DIRS-BLACKLIST-中，后两者不必关心</p>
+<p>makfile会关心这四个变量</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><br>SRCS-<span class="hljs-attribute">y</span> - 参与编译的源文件的候选集合<br>SRCS-BLACKLIST-<span class="hljs-attribute">y</span> - 不参与编译的源文件的黑名单集合<br>DIRS-<span class="hljs-attribute">y</span> - 参与编译的目录集合, 该目录下的所有文件都会被加入到SRCS-<span class="hljs-attribute">y</span>中<br>DIRS-BLACKLIST-<span class="hljs-attribute">y</span> - 不参与编译的目录集合, 该目录下的所有文件都会被加入到SRCS-BLACKLIST-<span class="hljs-attribute">y</span>中<br></code></pre></td></tr></table></figure>
 
-**准备一个客户程序**
+<p>这里的变量名称设置成这样，每个后面带个-y，xxx-y这种形式,就是为了用前述那种方法巧妙的利用kconfig工具传来的配置结果</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs"><br></code></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
-
-
-
-</code></pre>
+<p><strong>编译和链接</strong><br>书签</p>
+<p><strong>准备一个客户程序</strong></p>
 
                 
               </div>
