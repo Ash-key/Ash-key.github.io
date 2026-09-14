@@ -19,15 +19,15 @@
   <meta name="author" content="Asheng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="cpu设计思路能够输出中间态的元件真是一个重要的东西第一核心：首先，我需要一个核心组件，全加器，其实就是三个输入两个输出的元件，输入进位与两个比特位，输出对应比特位和进位，有了这个就能组合出8位甚至64位加法器件一个非常有趣的观察二进制数的角度，包括原码和补码，把每一位看作一个是十进制数字，数字表达的值就是所有位之和，补码的记忆与使用也更加简单源码:128 64  32  16  8  4  2">
+    <meta name="description" content="已安装软件：apt-get install build-essential    # build-essential packages, include binary utilities, gcc, make, and so onapt-get install man                # on-line reference manualapt-get install gcc-doc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图灵完备记录">
-<meta property="og:url" content="https://ash-key.github.io/2025/05/18/%E5%9B%BE%E7%81%B5%E5%AE%8C%E5%A4%87%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:title" content="ics_pa0">
+<meta property="og:url" content="https://ash-key.github.io/2026/09/02/ics-pa0/index.html">
 <meta property="og:site_name" content="Asheng">
-<meta property="og:description" content="cpu设计思路能够输出中间态的元件真是一个重要的东西第一核心：首先，我需要一个核心组件，全加器，其实就是三个输入两个输出的元件，输入进位与两个比特位，输出对应比特位和进位，有了这个就能组合出8位甚至64位加法器件一个非常有趣的观察二进制数的角度，包括原码和补码，把每一位看作一个是十进制数字，数字表达的值就是所有位之和，补码的记忆与使用也更加简单源码:128 64  32  16  8  4  2">
+<meta property="og:description" content="已安装软件：apt-get install build-essential    # build-essential packages, include binary utilities, gcc, make, and so onapt-get install man                # on-line reference manualapt-get install gcc-doc">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-05-18T02:02:03.000Z">
-<meta property="article:modified_time" content="2026-08-17T18:17:00.581Z">
+<meta property="article:published_time" content="2026-09-02T15:42:22.000Z">
+<meta property="article:modified_time" content="2026-09-12T07:50:05.978Z">
 <meta property="article:author" content="Asheng">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -35,7 +35,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>图灵完备记录 - Asheng</title>
+  <title>ics_pa0 - Asheng</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -304,7 +304,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="图灵完备记录"></span>
+            <span id="subtitle" data-typed-text="ics_pa0"></span>
           
         </div>
 
@@ -315,8 +315,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-05-18 10:02" pubdate>
-          2025年5月18日 上午
+        <time datetime="2026-09-02 23:42" pubdate>
+          2026年9月2日 晚上
         </time>
       </span>
     
@@ -327,7 +327,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.6k 字
+          3.4k 字
         
       </span>
     
@@ -338,7 +338,7 @@
         
         
         
-          31 分钟
+          29 分钟
         
       </span>
     
@@ -386,46 +386,48 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">图灵完备记录</h1>
+            <h1 id="seo-header">ics_pa0</h1>
             
             
               <div class="markdown-body">
                 
-                <p>cpu设计思路<br>能够输出中间态的元件真是一个重要的东西<br>第一核心：<br>首先，我需要一个核心组件，全加器，其实就是三个输入两个输出的元件，输入进位与两个比特位，输出对应比特位和进位，有了这个就能组合出8位甚至64位加法器件<br>一个非常有趣的观察二进制数的角度，包括原码和补码，把每一位看作一个是十进制数字，数字表达的值就是所有位之和，补码的记忆与使用也更加简单<br>源码:<br>128 64  32  16  8  4  2   1<br>  0  0   0   0  0  0  0   0</p>
-<p>补码：<br>-128 64  32  16  8  4  2   1<br>   0  0   0   0  0  0  0   0<br>不需要特别的处理，第一核心已经可以进行补码计算，即加减法已经搞定<br>图灵完备中不允许使用同步环路，也就是说我搭载不出经典的RS触发器用于存储东西，官方给出来的方案是使用延时器，用了延时期间就可以用RS这样的了</p>
-<p>我现在玩的这个看起来是比较差的版本，ui更加差劲，同时设计的地方让人不舒服，比如说我制造出了1位，8位存储器（这里送了64位存储器）后，little box这一关应该用的是8位存储器，好的版本是，而我的版本用的64位存储器</p>
-<p>第x核心：<br>寄存器堆；实现寄存器移位8 位指令mov source,destination;xx(指令码) xxx(源头) xxx(目标), 6个8位寄存器和一个输入寄存器，一个输出寄存器，输入寄存器和6个寄存器堆与源头地址编码，占用地址7&#x2F;8，输出寄存器和6个寄存器堆编码，这样可以在指令中制定从谁往谁进行复制操作</p>
-<p>第x核心：<br>counter计数器</p>
-<p>第x核心：<br>ALU单元<br>默认reg1 reg2 reg3</p>
-<p>第x核心：<br>完整alu单元：<br>寄存器单元和alu单元合体<br>同时，合体时，关于指令，先只关注alu和move指令，忽略掉immediate和condition,</p>
-<p>第x核心：<br>条件判断，对满足的条件，返回真，包括&gt;0 &lt;0 &gt;&#x3D;0 &lt;&#x3D;0 &#x3D;0 =0 never always(这两个什么用处？)</p>
-<p>第x核心：<br>立即数，这个不是核心，是在完整alu单元上直接绘制,将指令中的立即数直接放入reg0,6位都给立即数使用</p>
-<p>第x核心：<br>用raw元件替换关卡自己提供的指令输入<br>这一步反而是我需要提前的，只要一开始就制作好这个，才能在之前的指令工作中进行测试工作，由计数器驱动raw</p>
-<p>turingcomplete不是我制造的关键组件，现实中都非必要：<br>1：延迟线，这个是作者给的，无法搭建出来的东西，用延迟线搞定rs触发器的功能实现寄存器存储，在实际世界中我使用回环电路实现触发器进而实现寄存器<br>2：开关，也就是三态门，开关为假时输出中间态，在logism中教学cpu我可以选择使用大量mux多路选择器解决这个问题,实际世界中使用三态门,三态门总线结构简洁</p>
-<p>第x初核心（没有三态门的情况）：<br>mux数据选择器，纯逻辑门搭建,图灵完备中倒翻天罡用switch搭mux,这个我已经用纯粹的逻辑梦搭建出来了</p>
-<p>第x初核心：<br>分线器和集线器，结构简单的东西，但是是基础部件无法替代</p>
-<p>解码器-二进制数字解码为多个灯，选择某一位为真，3-8解码器，禁用高位，可以实现1-2解码器，2-4解码器；多位选择器mux,多选一，选择某一位输出</p>
-<p>最后一件事：<br>把前面的设计和条件判断核心合体，其实就是控制单元；这个跳转行为在硬件和软件上的表现如下：硬件上，将reg3作为待判断的值，利用condition指令中的指令码对reg3做判断，然后输出真假，为真，则执行擦写操作，counter暂停一次计数，并把计数值改成reg0中的值；软件上，我要做两条操作指令： mv reg0,填入想要去的地址;判断reg3（自动擦写counter,并开始执行跳转的程序）</p>
-<p>如此，我有了一个图灵完备的cpu,可以执行所有程序，我再把这个东西简介整理</p>
-<p>立即数那一章，我找不到的问题原来是，在立即数模式下没有禁用对指令复制模式下的3-8译码器，机器用三八译码器把立即数解析为某两个寄存器的读写控制位，导致某些寄存器被立即数意外的开启，造成问题</p>
-<p>overture汇编语言中，label功能没有对应的跳转功能，而是把label的行号（label不占行号，内部值记录下一行代码的行号）赋予reg0,之后在condition指令前写albel,再使用condition指令就可以条件或无条件跳转到此处,这样我就不用计算行号再赋予reg0再跳转</p>
-<p>需要注意的是，非常有趣的地方，写汇编没有堆栈之类的管理结构，调用函数后，我这里的寄存器不会自动恢复，尤其是用于判断的和用于地址跳转的reg0和reg3,容易不察觉，<br>我可以编写一段通用复制程序，把需要恢复但同时需要用的寄存器的值进行复制，在返回主函数前再恢复</p>
-<p>走迷宫问题，对完美迷宫，用右手法则一定能走出去</p>
-<p>overturn架构还是太掉头发了，升级leg架构</p>
-<p>非常需要注意的，有符号数和无符号数的溢出，CF是无符号数溢出，就是全加器的简单的二进制判断，但是有符号数字的溢出时全加器判断不出来的，比如8位cpu中，127+1,这个计算不会报出任何进位溢出，但是计算的结果是有符号数字-128，毕竟8位cpu有符号数字没有+128，范围-128到127，这里的计算错误需要额外的异或电路判断以报错OF<br>这是现代cpu的两个标志位</p>
-<p>加法器溢出，不一定有符号计算错误，77与-76<br>加法器不溢出，不一定无符号计算错误，如127和1</p>
-<p>我现在的溢出检测方法（未完全确定），异或检测输入符号位，真则说明异号相加，溢出无效直接忽略；假则说明同号相加溢出有效应该注意</p>
-<p>我没有明白挂面关卡前一关中宽指令关卡的作用，他实现了：两个时钟周期输出两条指令，挂面关卡直接更改成了一周期4指令</p>
-<p>有了挂面关卡一周期四指令，现在我可以不用受之前add指令的约束，现在可以随意两个寄存器或输入相加，存储到随意一个寄存器或输出,不用不停的移动寄存器</p>
-<p>这里的宽指令设计很好，前两位任然空出来不用，使得我可以直接复用之前立即数的设计，完成6个条件指令后可以免费获得他们的立即数版本,但是这时候会发现addi会对应有两种指令码的，分别是1号或2号参数作为立即数，或许应该取名addi2,当然更好的汇编器可以自动对addi划分两种SDFGHJKL<br>leg架构消灭了单独的immediate和copy指令，现在只有两种逻辑计算（00），条件（10）同时，leg只有宽指令<br>但是要注意，条件指令的第三个参数只能是数字地址，不能是制定寄存器，真是非常的无语</p>
-<p>现在要弄个用于存储的存储器（内存）出来，我的思路是，增加一个仅有输出的寄存器，现在的输出，0-5寄存器，6计数器，7输出端，现在为内存增加8寄存器，调用刷写时先用add刷写8寄存器地址，然后再用add将数据送入内存，这样我需要在为内存制定一个调用地址，9,即占用8和9，两个步骤：写内存，读内存到寄存器或输出，如下<br>写内存：<br>add 地址reg1 0 寄存器8<br>add 数据reg2 0 9（调用内存）</p>
-<p>读内存：<br>add 地址reg1 0 寄存器8<br>add 9（调用内存）0 输出7</p>
-<p>很好，用这个思路成功通过了 </p>
-<p>对所使用的8bit寄存器，其就算是永久输出的端口，其数据也会在刚刚更新后的下一个时钟周期才会更新，也就是说有，我可以用命令addi reg1 0 reg1，来去同一个</p>
-<p>关键组件栈<br>你知道的，函数嵌套调用天生就是一个栈的结构，这就是为什么大多数架构硬件上提供栈结构<br>有四个端口，pop单bit,push单bit,单字节数据data，输出<br>我的实现，把栈当作特殊的寄存器，占用地址reg10,不过这个寄存器的性质和其他寄存器不一样,push端口连接写4号位，pop端口连接读的2号和3号位<br>4-16解码器真是实用啊，拓展内存和栈直接就拿来用了</p>
-<p>关键扩展-函数调用指令call和ret<br>完成这个拓展，这次不占用预留的占用地址reg10地址，而是占用预留的指令集，同时，完成call和ret需要限制在一个周期，确保下个周期就是函数或主函数的指令<br>注意到，我用5和6两个位作为区分指令类型的位，有00（alu指令占用），01（未占用），10（条件指令占用），11（未占用）<br>现在用11作为call和ret的类区分<br>call 00110000  用程序计数器count值+4,压入push存储<br>ret  00110001  pop弹出值并写入程序计数器count</p>
-<p>因为leg指令每次取出32位的宽指令，同时指令码是8位的，是伪32位处理器，所以这两个指令使用格式我设计如下<br>call null null func_addr<br>ret null null null</p>
-<p>现在不用考虑在call ret指令下禁止掉栈联通的参数2和参数3的通路，因为使用时用的是null,导致不会选中栈的地址11号，只会选中reg0,注意到alu的输出被op的00控制着，所以输不出来，同时这也是处理器的硬件漏洞，加入软件编写不按照规则，写成call reg11 reg11 func,会导致总线中有这样的数字在本周期末端流通，当然虽然会输入alu和condition发生计算,但是输不出来,因为输出用开关控制了一下</p>
+                <p><strong>已安装软件</strong>：<br>apt-get install build-essential    # build-essential packages, include binary utilities, gcc, make, and so on<br>apt-get install man                # on-line reference manual<br>apt-get install gcc-doc            # on-line reference manual for gcc<br>apt-get install gdb                # GNU debugger<br>apt-get install git                # revision control system<br>apt-get install libreadline-dev    # a library used later 我要删掉这玩意<br>apt-get install libsdl2-dev        # a library used later 我要删掉这玩意</p>
+<p>apt-get install tmux</p>
+<p><strong>记录</strong><br>vim宏录制<br>vim ctrl+v,矩阵选择，不同于v模式选择,列块模式<br>自由选择，v或ctrl v下，o首尾端交换固定点与活动点</p>
+<p>diff对比格式与工具使用<br>git diff old new &gt; p<br>在另外一个地方，对old使用补丁<br>git apply<br>会修改old为new,而且会全方位修改，包括名字和内容，其实就是把new复制过去代替old了，只是以前的人为了节省空间发明这个东西<br>我可以用diff来比较两个文件是否相同，也可以用md5sum来计算比较md5值</p>
+<p>screen 自带<br>tmux 主流</p>
+<p>screen -S xxx<br>-d<br>-ls<br>screen -r xxx<br>screen -X -S xxx quit<br>[<br>?</p>
+<p>tmux new -s xxx<br>d<br>ls<br>tmux attach -t xxx<br>tmux kill-session -t<br>[<br>?</p>
+<p>tmux配置，让新建窗口，水平，垂直分屏出来的终端使用刚tmux source-file ~&#x2F;.tmux.conf才代码的路径，而不是回到启动tmux的更目录<br>bind-key c new-window -c “#{pane_current_path}”<br>bind-key % split-window -h -c “#{pane_current_path}”<br>bind-key ‘“‘ split-window -c “#{pane_current_path}”</p>
+<pre><code class="hljs">文件管理 - cd, pwd, mkdir, rmdir, ls, cp, rm, mv, tar
+文件检索 - cat, more, less, head, tail, file, find
+输入输出控制 - 重定向, 管道, tee, xargs
+文本处理 - vim, grep, awk, sed, sort, wc, uniq, cut, tr
+正则表达式
+系统监控 - jobs, ps, top, kill, free, dmesg, lsof
+</code></pre>
+<p>2&gt; &lt; rmdir tee xargs awk sed wc cut tr dmesg lsof</p>
+<p>-DCMAKE_BUILD_TYPE&#x3D;Debug</p>
+<p>临时获取到core文件<br>解除大小限制（生成完整快照，最常用）<br>ulimit -c unlimited<br>或设置为具体大小（如 1024 KB，单位通常为 KB）<br>ulimit -c 1024<br>sudo sysctl -w kenel.core_patern&#x3D;core.%e</p>
+<p>conda forge版本环境创建<br>conda create -n 你的环境名 -c conda-forge python&#x3D;3.x<br>conda install -c conda-forge numpy</p>
+<p>bash脚本和sh脚本有什么区分？<br>在 Ubuntu&#x2F;Debian 等系统中，&#x2F;bin&#x2F;sh 默认指向 dash（一个极其严格遵循 POSIX 标准、但功能极少的轻量级 Shell），而不是 bash<br>bash init.sh nemu<br>这样写不用chmod +x &#x2F;usr&#x2F;bin&#x2F;bash本身是具有+x权限的可执行文件,仅仅读入nemu<br>另外souce xx执行文件，这样在本shell内执行，而不是像普通执行一样在子shell内执行，source简写为. 注意空格和&#x2F;区分普通执行<br>source xxx&#x2F;xxx.sh 等于 . xxx&#x2F;xxx.sh 都是source执行<br>.&#x2F;xxx&#x2F;xxx.sh 普通执行 .&#x2F;<br>用了source,我才能在本shell中成功引入临时环境变量，否则是在子shell中发生引入进而无效<br>经常在.bashrc文件修改完环境变量后执行source ~&#x2F;.bashrc ，是为了在当前终端执行引入环境变量，而不用重新打开一个终端由系统执行</p>
+<p>运行时先执行set_env_by_ash.sh</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs"><br></code></pre></td></tr></table></figure>
+<p>git branch<br>git status<br>git checkout -b xxx<br>git checkout xxx<br>git diff<br>git add.<br>git commit<br>git log</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs"><br></code></pre></td></tr></table></figure>
+
+<p>用git管理大型项目，包括unity之类的，git对编译器来说，是透明的，但是要注意，一些资源类等大型文件，没有提交的必要,用gitignore忽略掉这些文件,写进名单的文件会被忽略<br>“赶紧去给你的 Unity 项目根目录加一个 .gitignore 文件（把 Library&#x2F; 和 Temp&#x2F; 写进去），然后放心大胆地切换分支吧！如果不知道 .gitignore 怎么写，我可以直接把 Unity 官方标准的模板发给你。”</p>
+<p>以前只输入make而不接任何东西时，调度员会去任务清单（Makefile）里找第一个出现的任务来执行。在大多数 C&#x2F;C++ 项目中，Makefile 的第一个任务通常是 all。所以，你输入 make，实际上相当于输入了 make all。这个任务通常负责把整个项目编译成可执行文件</p>
+<p>当你输入 make menuconfig 时，你是在明确告诉调度员：“不要执行默认的第一个任务，我要执行清单上名为 menuconfig 的那个特定任务。”</p>
+<p>make menuconfig<br>make run<br>make gdb</p>
+<p>这个项目是怎么实现自动跟踪，防止学生粘贴代码的？在项目ics2024的的Makefile文件中，有着一段自动化行为，每当make成功一次，就会自动commit一次，产生对应的git log日志，如此跟踪开发进程,同时自动存档开发历程，方便回档；同时，这种自动的提交和手动提交书区分开的，用git log –author&#x3D;21312677筛选出手动提交的记录，自动追踪的垃圾信息由此看不见了<br>手动提交的时候往往已经和上一次自动提交没有区别，所以需要允许空提交<br>git add.<br>git commit –allow-empty</p>
+<p>git pull相当于git fetch + git merge<br>git push把本地的推送到远程，远程专用的add+commit</p>
+<p>git branch 默认只显示本地分支；<br>要看它得用 git branch -r(只看远程) 或 git branch -a(本地加远程)<br>与本地的xxx区分的方法origin&#x2F;xxx</p>
+<p>我单独设置环境，单独克隆</p>
+<p>git clone -b ics2024 <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;">git@github.com</a>:NJU-ProjectN&#x2F;nemu.git<br>git clone -b ics2024 <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#x67;&#105;&#x74;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;">git@github.com</a>:NJU-ProjectN&#x2F;abstract-machine.git</p>
+<p>第一层：你在 nemu&#x2F; 下敲的 make menuconfig，它叫父make<br>第二层：父make 内部又调用了一次 make，去编译 kconfig 工具，它叫子make，打印时前缀是make[1],父make的打印前缀是make</p>
+<p>make[1]: bison: No such file or directory<br>make[1]: *** [Makefile:32: build&#x2F;parser.tab.h] Error 127<br>make: *** [&#x2F;home&#x2F;asheng&#x2F;…&#x2F;nemu&#x2F;scripts&#x2F;config.mk:39: &#x2F;home&#x2F;asheng&#x2F;…&#x2F;nemu&#x2F;tools&#x2F;kconfig&#x2F;build&#x2F;mconf] Error 2</p>
+<p>GNU make 自己退出时，只会有这几种常见状态：<br>退出码	含义<br>0	成功<br>1	只有用了 make -q 时，表示“有目标需要更新”<br>2	make 遇到错误，执行失败</p>
 
                 
               </div>
@@ -445,9 +447,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/09/02/ics-pa0/" title="ics_pa0">
+                      <a href="/2026/09/02/ics-pa1/" title="ics_pa1">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ics_pa0</span>
+                        <span class="hidden-mobile">ics_pa1</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -455,8 +457,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/05/09/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" title="算法笔记_2025-5-9">
-                        <span class="hidden-mobile">算法笔记_2025-5-9</span>
+                      <a href="/2025/05/18/%E5%9B%BE%E7%81%B5%E5%AE%8C%E5%A4%87%E8%AE%B0%E5%BD%95/" title="图灵完备记录">
+                        <span class="hidden-mobile">图灵完备记录</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
