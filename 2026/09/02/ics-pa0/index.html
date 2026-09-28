@@ -27,7 +27,7 @@
 <meta property="og:description" content="已安装软件：apt-get install build-essential    # build-essential packages, include binary utilities, gcc, make, and so onapt-get install man                # on-line reference manualapt-get install gcc-doc">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-09-02T15:42:22.000Z">
-<meta property="article:modified_time" content="2026-09-12T07:50:05.978Z">
+<meta property="article:modified_time" content="2026-09-28T10:36:05.656Z">
 <meta property="article:author" content="Asheng">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -424,7 +424,7 @@
 <p>git pull相当于git fetch + git merge<br>git push把本地的推送到远程，远程专用的add+commit</p>
 <p>git branch 默认只显示本地分支；<br>要看它得用 git branch -r(只看远程) 或 git branch -a(本地加远程)<br>与本地的xxx区分的方法origin&#x2F;xxx</p>
 <p>我单独设置环境，单独克隆</p>
-<p>git clone -b ics2024 <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#x63;&#x6f;&#x6d;">git@github.com</a>:NJU-ProjectN&#x2F;nemu.git<br>git clone -b ics2024 <a href="mailto:&#103;&#x69;&#x74;&#64;&#103;&#x69;&#x74;&#x68;&#117;&#x62;&#46;&#x63;&#x6f;&#109;">git@github.com</a>:NJU-ProjectN&#x2F;abstract-machine.git</p>
+<p>git clone -b ics2024 <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;">git@github.com</a>:NJU-ProjectN&#x2F;nemu.git<br>git clone -b ics2024 <a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#x62;&#46;&#x63;&#x6f;&#x6d;">git@github.com</a>:NJU-ProjectN&#x2F;abstract-machine.git</p>
 <p>第一层：你在 nemu&#x2F; 下敲的 make menuconfig，它叫父make<br>第二层：父make 内部又调用了一次 make，去编译 kconfig 工具，它叫子make，打印时前缀是make[1],父make的打印前缀是make</p>
 <p>make[1]: bison: No such file or directory<br>make[1]: *** [Makefile:32: build&#x2F;parser.tab.h] Error 127<br>make: *** [&#x2F;home&#x2F;asheng&#x2F;…&#x2F;nemu&#x2F;scripts&#x2F;config.mk:39: &#x2F;home&#x2F;asheng&#x2F;…&#x2F;nemu&#x2F;tools&#x2F;kconfig&#x2F;build&#x2F;mconf] Error 2</p>
 <p>GNU make 自己退出时，只会有这几种常见状态：<br>退出码	含义<br>0	成功<br>1	只有用了 make -q 时，表示“有目标需要更新”<br>2	make 遇到错误，执行失败</p>
